@@ -1,0 +1,73 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/Frame_Stat"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="tn.insat.wassimrekik.usagetracker.Fragment.StatestiquesFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal">
+
+        <me.rishabhkhanna.customtogglebutton.CustomToggleButton
+            android:id="@+id/toggle_data"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:checked="false"
+            android:textOff="@string/data"
+            android:textOn="@string/data"
+            app:borderWidth="5dp"
+            app:checkedColor="@color/colorPrimary"
+            app:checkedTextColor="@android:color/white"
+            app:radius="0dp"
+            app:uncheckedColor="@color/colorPrimary"
+            app:uncheckedTextColor="@color/colorPrimary"></me.rishabhkhanna.customtogglebutton.CustomToggleButton>
+
+        <me.rishabhkhanna.customtogglebutton.CustomToggleButton
+            android:id="@+id/toggle_appel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:checked="true"
+            android:textOff="@string/appels"
+            android:textOn="@string/appels"
+            app:borderWidth="5dp"
+            app:checkedColor="@color/colorPrimary"
+            app:checkedTextColor="@android:color/white"
+            app:radius="0dp"
+            app:uncheckedColor="@color/colorPrimary"
+            app:uncheckedTextColor="@color/colorPrimary"></me.rishabhkhanna.customtogglebutton.CustomToggleButton>
+
+        <me.rishabhkhanna.customtogglebutton.CustomToggleButton
+            android:id="@+id/toggle_message"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:checked="true"
+            android:textOff="@string/messages"
+            android:textOn="@string/messages"
+            app:borderWidth="5dp"
+            app:checkedColor="@color/colorPrimary"
+            app:checkedTextColor="@android:color/white"
+            app:radius="0dp"
+            app:uncheckedColor="@color/colorPrimary"
+            app:uncheckedTextColor="@color/colorPrimary"></me.rishabhkhanna.customtogglebutton.CustomToggleButton>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/Frame_Stat_Content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_weight="1">
+
+    </FrameLayout>
+</FrameLayout>

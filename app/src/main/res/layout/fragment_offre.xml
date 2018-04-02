@@ -1,0 +1,35 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="tn.insat.wassimrekik.usagetracker.Fragment.OffreFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ListView
+        android:id="@+id/List_Offre"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+    </ListView>
+
+    <ImageView
+        android:id="@+id/imageView_noOffre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center"
+        android:src="@drawable/no_offer" />
+
+    <TextView
+        android:id="@+id/textView_noOffre"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_marginBottom="70dp"
+        android:text="Il n'y a pas d'offres pour votre utilisation"
+        android:textColor="@color/bootstrap_brand_secondary_text"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+</FrameLayout>

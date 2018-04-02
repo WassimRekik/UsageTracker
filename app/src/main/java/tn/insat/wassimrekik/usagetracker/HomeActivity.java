@@ -1,44 +1,135 @@
 package tn.insat.wassimrekik.usagetracker;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.view.View;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
-public class HomeActivity extends AppCompatActivity {
+import tn.insat.wassimrekik.usagetracker.Fragment.DebiterFragment;
+import tn.insat.wassimrekik.usagetracker.Fragment.HistoryFragment;
+import tn.insat.wassimrekik.usagetracker.Fragment.MesAlarmesFragment;
+import tn.insat.wassimrekik.usagetracker.Fragment.OffreFragment;
+import tn.insat.wassimrekik.usagetracker.Fragment.StatestiquesFragment;
 
-    private TextView mTextMessage;
+public class HomeActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
-                    return true;
-                case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
-                    return true;
-                case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
-                    return true;
-            }
-            return false;
-        }
-    };
-
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.MainFragment, new StatestiquesFragment());
+        fragmentTransaction.commit();
+
     }
 
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.home, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        if (fragmentManager == null){
+            fragmentManager = getSupportFragmentManager();
+        }
+        int id = item.getItemId();
+
+        if (id == R.id.nav_stat) {
+            setTitle(item.getTitle());
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.MainFragment, new StatestiquesFragment());
+            fragmentTransaction.commit();
+        } else if (id == R.id.nav_debiter) {
+            setTitle(item.getTitle());
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.MainFragment, new DebiterFragment());
+            fragmentTransaction.commit();
+
+        } else if (id == R.id.nav_historique) {
+            setTitle(item.getTitle());
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.MainFragment, new HistoryFragment());
+            fragmentTransaction.commit();
+
+        } else if (id == R.id.nav_alarmes) {
+            setTitle(item.getTitle());
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.MainFragment, new MesAlarmesFragment());
+            fragmentTransaction.commit();
+
+        } else if (id == R.id.nav_offre) {
+            setTitle(item.getTitle());
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.MainFragment, new OffreFragment());
+            fragmentTransaction.commit();
+
+        } else if (id == R.id.nav_param) {
+            setTitle(item.getTitle());
+
+
+        }else if (id == R.id.nav_propos) {
+            setTitle(item.getTitle());
+
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
 }
