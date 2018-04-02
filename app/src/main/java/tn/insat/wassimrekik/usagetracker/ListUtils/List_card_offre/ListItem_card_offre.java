@@ -1,15 +1,15 @@
-package tn.insat.wassimrekik.usagetracker.ListUtils;
+package tn.insat.wassimrekik.usagetracker.ListUtils.List_card_offre;
 
 /**
  * Created by wassimrekik on 27/03/2018.
  */
 
-public class ListItem {
+public class ListItem_card_offre {
     private String Title;
     private String Description;
     private int Image;
 
-    public ListItem(String n, String description, int image) {
+    public ListItem_card_offre(String n, String description, int image) {
         Title = n;
         Description = description;
         Image = image;
