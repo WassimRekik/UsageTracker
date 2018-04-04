@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/CheckedTextColor"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView_Log_Item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            app:srcCompat="@mipmap/ic_card_icon" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView_title_log"
+                android:layout_width="match_parent"
+                android:layout_height="23dp"
+                android:text="Titre de la carte"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView_Description_log"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description de la carte "
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView_card_offre_item"
+                app:layout_constraintTop_toBottomOf="@+id/textView_title_card_offre" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/bootstrap_well_background"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView_Duration_log"
+                android:layout_width="match_parent"
+                android:layout_height="23dp"
+                android:layout_weight="1"
+                android:text="Durée"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView_Accuml_log"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Accuml" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="231dp"
+            tools:layout_editor_absoluteY="19dp">
+
+            <TextView
+                android:id="@+id/textView_Date_log"
+                android:layout_width="match_parent"
+                android:layout_height="23dp"
+                android:text="Date"
+                android:textAlignment="textEnd"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView_Time_log"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TIme"
+                android:textAlignment="textEnd" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

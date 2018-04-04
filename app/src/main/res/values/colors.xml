@@ -3,4 +3,19 @@
     <color name="colorPrimary">#03a9f4</color>
     <color name="colorPrimaryDark">#0288d1</color>
     <color name="colorAccent">#7ED321</color>
+    <color name="black">#000000</color>
+    <color name="jet">#222222</color>
+    <color name="oil">#333333</color>
+    <color name="monsoon">#777777</color>
+    <color name="jumbo">#888888</color>
+    <color name="aluminum">#999999</color>
+    <color name="base">#aaaaaa</color>
+    <color name="iron">#bdcccccc</color>
+    <color name="white">#ffffff</color>
+    <color name="grey_1">#646766</color>
+    <color name="grey_2">#A5A5A6</color>
+    <color name="grey_3">#D2D2D2</color>
+    <color name="grey_4">#F7F7F7</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="transparent">#00000000</color>
 </resources>
