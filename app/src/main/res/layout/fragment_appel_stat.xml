@@ -8,7 +8,7 @@
     <!-- TODO: Update blank fragment layout -->
 
     <TextView
-        android:id="@+id/TV_Data_Usage"
+        android:id="@+id/tv_Call_Usage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -53,21 +53,19 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:text="Utilisés durant ce cycle"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="26sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/Progress_Data"
+        app:layout_constraintBottom_toTopOf="@+id/Progress_Call"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Image_Dot" />
 
     <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
-        android:id="@+id/Progress_Data"
+        android:id="@+id/Progress_Call"
         android:layout_width="0dp"
         android:layout_height="20dp"
         android:layout_marginEnd="32dp"
@@ -114,7 +112,7 @@
                 android:src="@android:drawable/sym_call_outgoing" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/textView_first_call"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
@@ -152,7 +150,7 @@
                     android:src="@android:drawable/sym_call_outgoing" />
 
                 <TextView
-                    android:id="@+id/textView22"
+                    android:id="@+id/textView_second_call"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
@@ -190,7 +188,7 @@
                         android:src="@android:drawable/sym_call_outgoing" />
 
                     <TextView
-                        android:id="@+id/textView222"
+                        android:id="@+id/textView_third_call"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="5dp"
@@ -215,7 +213,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Appels récents"
+        android:text="Les derniers numéros appelés"
         android:textColor="@color/bootstrap_brand_primary"
         android:textSize="14sp"
         android:textStyle="bold"

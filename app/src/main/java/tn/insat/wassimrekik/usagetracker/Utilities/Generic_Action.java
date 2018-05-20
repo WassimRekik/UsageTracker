@@ -34,13 +34,24 @@ public class Generic_Action {
         Integer min = durat/60;
         Integer sec = durat % 60;
         if (durat == 0){
-            return "0sec";
+            return "0:00";
         }else{
             if (sec < 10){
                 return min + ":0" + sec ;
             }else {
                 return min + ":" + sec;
             }
+        }
+    }
+    public static int convertToIntDuration(String input){
+        Log.e("input", input);
+        try{
+        String[] separated = input.split(":");
+        int min = Integer.parseInt(separated[0]);
+        int sec = Integer.parseInt(separated[1]);
+        return (min * 60) + sec;
+        }catch (Exception e){
+            return 0;
         }
     }
 }

@@ -8,7 +8,7 @@
     <!-- TODO: Update blank fragment layout -->
 
     <TextView
-        android:id="@+id/TV_Data_Usage"
+        android:id="@+id/tv_Msg_Usage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -56,18 +56,16 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:text="Utilisés durant ce cycle"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="26sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/Progress_Data"
+        app:layout_constraintBottom_toTopOf="@+id/Progress_Msg"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Image_Dot" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
-        android:id="@+id/Progress_Data"
+        android:id="@+id/Progress_Msg"
         android:layout_width="0dp"
         android:layout_height="20dp"
         android:layout_marginEnd="32dp"
@@ -114,7 +112,7 @@
                 android:src="@drawable/outgoing_msg_icon" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/textView_first_msg"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
@@ -145,14 +143,14 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView22"
+                    android:id="@+id/imageView_second_msg"
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
                     android:src="@drawable/outgoing_msg_icon" />
 
                 <TextView
-                    android:id="@+id/textView22"
+                    android:id="@+id/textView_second_msg"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
@@ -190,7 +188,7 @@
                         android:src="@drawable/outgoing_msg_icon" />
 
                     <TextView
-                        android:id="@+id/textView222"
+                        android:id="@+id/textView_third_msg"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="5dp"
@@ -215,7 +213,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Messages récents"
+        android:text="Les derniers numéros contactés"
         android:textColor="@color/bootstrap_brand_primary"
         android:textSize="14sp"
         android:textStyle="bold"

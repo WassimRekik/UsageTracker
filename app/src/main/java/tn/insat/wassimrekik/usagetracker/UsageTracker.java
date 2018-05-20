@@ -32,4 +32,5 @@ public class UsageTracker extends Application {
     public void onLowMemory() {
         super.onLowMemory();
     }
+
 }

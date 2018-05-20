@@ -1,5 +1,7 @@
 package tn.insat.wassimrekik.usagetracker;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +15,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import io.realm.Realm;
+import tn.insat.wassimrekik.usagetracker.CameraReader.CameraPreview;
 import tn.insat.wassimrekik.usagetracker.DataModel.CardModel;
 
 public class AddCardManualActivity extends AppCompatActivity {
@@ -21,9 +24,11 @@ public class AddCardManualActivity extends AppCompatActivity {
     NumberPicker npOperator;
     ImageButton annuler_action;
     ImageButton valider_action;
+    ImageButton scan_action;
     String[] valueSetRecharge;
     String[] valueSetOperator;
     Realm realm;
+    int ResultScanCode = 1234;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +42,7 @@ public class AddCardManualActivity extends AppCompatActivity {
         npOperator = (NumberPicker) findViewById(R.id.operatorPicker);
         annuler_action = (ImageButton) findViewById(R.id.imageButton_annuler);
         valider_action = (ImageButton) findViewById(R.id.imageButton_valider);
-
+        scan_action = (ImageButton) findViewById(R.id.imageButton_scan_add_activity);
         valueSetRecharge = new String[4];
         valueSetRecharge[0] = "1";
         valueSetRecharge[1] = "5";
@@ -85,6 +90,24 @@ public class AddCardManualActivity extends AppCompatActivity {
                 finish();
             }
         });
+        scan_action.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ScanIntent = new Intent(AddCardManualActivity.this, CameraPreview.class);
+                startActivityForResult(ScanIntent,ResultScanCode);
+            }
+        });
+
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == ResultScanCode) {
+            String result =data.getStringExtra("resultCode");
+            Log.e("Result Code", result);
+            numero_carte.setText(result.replaceAll("\\s+",""));
+        }
 
     }
 }
+

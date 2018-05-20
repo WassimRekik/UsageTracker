@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <tn.insat.wassimrekik.usagetracker.CameraReader.Preview
+        android:id="@+id/preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></tn.insat.wassimrekik.usagetracker.CameraReader.Preview>>
+
+    <tn.insat.wassimrekik.usagetracker.CameraReader.TouchView
+        android:id="@+id/left_top_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"></tn.insat.wassimrekik.usagetracker.CameraReader.TouchView>
+
+    <ImageView
+        android:id="@+id/startcamerapreview"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="false"
+        android:layout_centerInParent="true"
+        android:layout_marginEnd="20dp"
+        android:src="@mipmap/ic_action_picture"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:id="@+id/LL_select_info"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:alpha="0.7"
+        android:background="@color/CheckedTextColor"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:src="@mipmap/ic_selection" />
+
+    <TextView
+        android:id="@+id/textView_select_info_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView_select_info"
+        android:layout_marginStart="5dp"
+        android:layout_toEndOf="@+id/imageView4"
+        android:text="Entourer le code par le rectangle ci desous pour l'extraction" />
+
+    <TextView
+        android:id="@+id/textView_select_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/imageView4"
+        android:layout_weight="1"
+        android:text="Sélectionnez le code de votre carte "
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:id="@+id/LL_buttom_capture"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:alpha="0.7"
+        android:background="@color/CheckedTextColor"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_result_code_cam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView18"
+        android:paddingStart="40dp"
+        android:text="Capturer le code pour l'extraction"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/LL_buttom_capture"
+        android:paddingStart="20dp"
+        android:paddingTop="10dp"
+        android:text="Le resultat du scan de votre code : "
+        android:textColor="@color/bootstrap_gray" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:paddingBottom="10dp"
+        android:paddingStart="20dp"
+        android:paddingTop="10dp"
+        android:text="Code correct - Continuer | Code incorrect - recapturer"
+        android:textColor="@color/bootstrap_gray" />
+
+    <Button
+        android:id="@+id/button_continue_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="20dp"
+        android:background="?attr/colorPrimary"
+        android:text="Continuer"
+        android:textColor="@color/CheckedTextColor" />
+
+</RelativeLayout>

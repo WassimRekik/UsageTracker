@@ -7,16 +7,37 @@
     android:orientation="vertical"
     tools:context="tn.insat.wassimrekik.usagetracker.AddCardManualActivity">
 
-    <EditText
-        android:id="@+id/editText_num_carte"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:ems="10"
-        android:hint="Entrer le code de votre carte"
-        android:inputType="number"
-        android:singleLine="true"
-        android:theme="@style/EditTextHint" />
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editText_num_carte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Entrer le code de votre carte"
+            android:inputType="number"
+            android:singleLine="true"
+            android:theme="@style/EditTextHint" />
+
+        <ImageButton
+            android:id="@+id/imageButton_scan_add_activity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:adjustViewBounds="true"
+            android:background="@color/CheckedTextColor"
+            android:cropToPadding="false"
+            android:paddingRight="10dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_action_scan" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView16"

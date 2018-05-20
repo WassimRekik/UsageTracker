@@ -7,10 +7,8 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.CallLog;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,8 +18,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import tn.insat.wassimrekik.usagetracker.DataModel.CardModel;
-import tn.insat.wassimrekik.usagetracker.ListUtils.List_card_offre.ListAdapter_card_offre;
 import tn.insat.wassimrekik.usagetracker.ListUtils.List_log.ListAdapter_Log;
 import tn.insat.wassimrekik.usagetracker.Model.CallMessageLog;
 import tn.insat.wassimrekik.usagetracker.R;
@@ -118,6 +114,13 @@ public class AppelHistFragment extends Fragment {
             }
         }
         cursor.close();
+        int accuAll = Generic_Action.convertToIntDuration(customListDataModelArrayList.get(customListDataModelArrayList.size() - 1 ).getExtra());
+        customListDataModelArrayList.get(0).setExtra(Generic_Action.convertToMinSecDuration(accuAll+""));
+        for (int i = 1 ; i < customListDataModelArrayList.size() ; i++ ){
+            int currentAcc = accuAll - Generic_Action.convertToIntDuration(customListDataModelArrayList.get(i-1).getDuration());
+            accuAll = currentAcc;
+            customListDataModelArrayList.get(i).setExtra(Generic_Action.convertToMinSecDuration(currentAcc+""));
+        }
         customListAdapter = new ListAdapter_Log(getActivity(), customListDataModelArrayList);
         List_Appel.setAdapter(customListAdapter);
     }

@@ -1,6 +1,7 @@
 package tn.insat.wassimrekik.usagetracker.ListUtils.List_log;
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,14 +10,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.ArrayList;
 
+import tn.insat.wassimrekik.usagetracker.DataModel.Shared_Key;
 import tn.insat.wassimrekik.usagetracker.Model.CallMessageLog;
 import tn.insat.wassimrekik.usagetracker.R;
+import tn.insat.wassimrekik.usagetracker.Utilities.Generic_Action;
 
 /**
  * Created by Sanjeev k Saroj on 28/2/17.
  */
 
 public class ListAdapter_Log extends BaseAdapter {
+    SharedPreferences sharedPref;
 
     Activity activity;
     ArrayList<CallMessageLog> customListDataModelArrayList = new ArrayList<CallMessageLog>();
@@ -55,6 +59,7 @@ public class ListAdapter_Log extends BaseAdapter {
     // this method  is called each time for arraylist data size.
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
+        sharedPref = activity.getSharedPreferences(Shared_Key.shared_pref_key, Context.MODE_PRIVATE);
 
         View vi=view;
         final int pos = position;
@@ -83,20 +88,28 @@ public class ListAdapter_Log extends BaseAdapter {
         if (type == "Appel"){
             viewHolder.image_view.setImageResource(R.mipmap.ic_call);
             viewHolder.tv_discription.setText("Appel Sortant");
-            viewHolder.tv_duree.setText("Durée : " + customListDataModelArrayList.get(pos).getDuration());
+            int accuml = Generic_Action.convertToIntDuration(customListDataModelArrayList.get(pos).getExtra());
+            int estim  = (accuml/15) * (sharedPref.getInt(Shared_Key.Prix_minute,40)/4);
+            if (accuml % 15 > 0){
+                estim = estim + (sharedPref.getInt(Shared_Key.Prix_minute,40)/4);
+            }
+            viewHolder.tv_duree.setText("#Estim : " + estim +" Mil");
             viewHolder.tv_accuml.setText("#Accumul : " + customListDataModelArrayList.get(pos).getExtra() );
+            viewHolder.tv_date.setText(customListDataModelArrayList.get(pos).getTime()+" "+customListDataModelArrayList.get(pos).getDate());
+            viewHolder.tv_time.setText("Durée : " + customListDataModelArrayList.get(pos).getDuration());
 
         }else{
             viewHolder.image_view.setImageResource(R.mipmap.ic_message);
             viewHolder.tv_discription.setText("Message Sortant");
             int accuml = customListDataModelArrayList.size() - (pos);
-            int estim  = accuml * 40;
+            int estim  = accuml * sharedPref.getInt(Shared_Key.Prix_message,40);
             viewHolder.tv_duree.setText("#Estim : " + estim +"Mil");
             viewHolder.tv_accuml.setText("#Nbr : " + accuml);
+            viewHolder.tv_date.setText(customListDataModelArrayList.get(pos).getDate());
+            viewHolder.tv_time.setText(customListDataModelArrayList.get(pos).getTime());
+
         }
         viewHolder.tv_title.setText(customListDataModelArrayList.get(pos).getNumber());
-        viewHolder.tv_date.setText(customListDataModelArrayList.get(pos).getDate());
-        viewHolder.tv_time.setText(customListDataModelArrayList.get(pos).getTime());
 
         return vi;
     }
